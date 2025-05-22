@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "texto": "¿Qué actividad disfrutas más?",
+    "respuestas": [
+      { "id": "1a", "texto": "Programar o resolver problemas lógicos", "carrera": "ingenieria de sistemas" },
+      { "id": "1b", "texto": "Diseñar circuitos o trabajar con hardware", "carrera": "ingenieria electronica" },
+      { "id": "1c", "texto": "Crear obras visuales o musicales", "carrera": "arte" },
+      { "id": "1d", "texto": "Debatir temas legales o sociales", "carrera": "derecho" },
+      { "id": "1e", "texto": "Organizar proyectos o liderar equipos", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 2,
+    "texto": "¿En qué materia destacabas más en el colegio?",
+    "respuestas": [
+      { "id": "2a", "texto": "Matemáticas", "carrera": "ingenieria de sistemas" },
+      { "id": "2b", "texto": "Física", "carrera": "ingenieria electronica" },
+      { "id": "2c", "texto": "Arte o música", "carrera": "arte" },
+      { "id": "2d", "texto": "Ciencias sociales", "carrera": "derecho" },
+      { "id": "2e", "texto": "Economía o gestión", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 3,
+    "texto": "¿Qué te motiva más?",
+    "respuestas": [
+      { "id": "3a", "texto": "Resolver retos tecnológicos", "carrera": "ingenieria de sistemas" },
+      { "id": "3b", "texto": "Innovar en dispositivos electrónicos", "carrera": "ingenieria electronica" },
+      { "id": "3c", "texto": "Expresar ideas a través del arte", "carrera": "arte" },
+      { "id": "3d", "texto": "Defender la justicia", "carrera": "derecho" },
+      { "id": "3e", "texto": "Mejorar procesos organizacionales", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 4,
+    "texto": "¿Cuál de estas actividades prefieres?",
+    "respuestas": [
+      { "id": "4a", "texto": "Desarrollar software", "carrera": "ingenieria de sistemas" },
+      { "id": "4b", "texto": "Construir robots", "carrera": "ingenieria electronica" },
+      { "id": "4c", "texto": "Pintar o esculpir", "carrera": "arte" },
+      { "id": "4d", "texto": "Analizar leyes", "carrera": "derecho" },
+      { "id": "4e", "texto": "Planificar estrategias empresariales", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 5,
+    "texto": "¿Con qué frase te identificas más?",
+    "respuestas": [
+      { "id": "5a", "texto": "Me gusta la lógica y la programación", "carrera": "ingenieria de sistemas" },
+      { "id": "5b", "texto": "Me apasiona la electrónica y la tecnología", "carrera": "ingenieria electronica" },
+      { "id": "5c", "texto": "Tengo creatividad artística", "carrera": "arte" },
+      { "id": "5d", "texto": "Me interesa la justicia y la ley", "carrera": "derecho" },
+      { "id": "5e", "texto": "Me gusta liderar y organizar", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 6,
+    "texto": "¿Qué tipo de problemas disfrutas resolver?",
+    "respuestas": [
+      { "id": "6a", "texto": "Algoritmos y lógica", "carrera": "ingenieria de sistemas" },
+      { "id": "6b", "texto": "Problemas eléctricos o electrónicos", "carrera": "ingenieria electronica" },
+      { "id": "6c", "texto": "Desafíos creativos", "carrera": "arte" },
+      { "id": "6d", "texto": "Conflictos legales", "carrera": "derecho" },
+      { "id": "6e", "texto": "Gestión de recursos", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 7,
+    "texto": "¿Qué prefieres hacer en tu tiempo libre?",
+    "respuestas": [
+      { "id": "7a", "texto": "Jugar con computadoras", "carrera": "ingenieria de sistemas" },
+      { "id": "7b", "texto": "Armar circuitos o gadgets", "carrera": "ingenieria electronica" },
+      { "id": "7c", "texto": "Dibujar, pintar o tocar instrumentos", "carrera": "arte" },
+      { "id": "7d", "texto": "Leer sobre leyes", "carrera": "derecho" },
+      { "id": "7e", "texto": "Organizar actividades", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 8,
+    "texto": "¿Qué te gustaría aprender más?",
+    "respuestas": [
+      { "id": "8a", "texto": "Lenguajes de programación", "carrera": "ingenieria de sistemas" },
+      { "id": "8b", "texto": "Electrónica avanzada", "carrera": "ingenieria electronica" },
+      { "id": "8c", "texto": "Técnicas artísticas", "carrera": "arte" },
+      { "id": "8d", "texto": "Derecho penal o civil", "carrera": "derecho" },
+      { "id": "8e", "texto": "Administración de empresas", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 9,
+    "texto": "¿En qué ambiente te ves trabajando?",
+    "respuestas": [
+      { "id": "9a", "texto": "Desarrollando software", "carrera": "ingenieria de sistemas" },
+      { "id": "9b", "texto": "Laboratorio de electrónica", "carrera": "ingenieria electronica" },
+      { "id": "9c", "texto": "Estudio de arte", "carrera": "arte" },
+      { "id": "9d", "texto": "Despacho jurídico", "carrera": "derecho" },
+      { "id": "9e", "texto": "Oficina de gestión", "carrera": "administración" }
+    ]
+  },
+  {
+    "id": 10,
+    "texto": "¿Qué valoras más en una carrera?",
+    "respuestas": [
+      { "id": "10a", "texto": "Innovación tecnológica", "carrera": "ingenieria de sistemas" },
+      { "id": "10b", "texto": "Avances en hardware", "carrera": "ingenieria electronica" },
+      { "id": "10c", "texto": "Expresión creativa", "carrera": "arte" },
+      { "id": "10d", "texto": "Justicia social", "carrera": "derecho" },
+      { "id": "10e", "texto": "Liderazgo y gestión", "carrera": "administración" }
+    ]
+  }
+]

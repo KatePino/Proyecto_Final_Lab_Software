@@ -4,7 +4,8 @@ import { crearElemento } from '../utils.js';
 export default async function renderScreen1(onFinalizar) {
   const preguntas = await fetchPreguntas();
   let current = 0;
-  const respuestas = [];
+  // Cambiamos respuestas a un objeto para asociar pregunta y respuesta
+  const respuestas = {};
 
   const app = document.createElement('div');
   const logo = crearElemento('img', { src: 'assets/iush-logo.png', class: 'logo', alt: 'IUSH' });
@@ -39,12 +40,34 @@ export default async function renderScreen1(onFinalizar) {
     e.preventDefault();
     const seleccionada = form.querySelector('input[name="respuesta"]:checked');
     if (!seleccionada) return;
-    respuestas[current] = seleccionada.value;
+    // Guardar la respuesta asociada a la pregunta
+    respuestas[preguntas[current].id] = seleccionada.value;
     if (current < preguntas.length - 1) {
       current++;
       renderPregunta(current);
     } else {
-      onFinalizar(respuestas);
+      // Calcular recomendación (la carrera más seleccionada)
+      const conteo = {};
+      Object.values(respuestas).forEach(val => {
+        // Buscar la respuesta seleccionada en todas las preguntas
+        let respObj = null;
+        for (const pregunta of preguntas) {
+          respObj = pregunta.respuestas.find(r => r.id === val);
+          if (respObj) break;
+        }
+        if (respObj) {
+          conteo[respObj.carrera] = (conteo[respObj.carrera] || 0) + 1;
+        }
+      });
+      let recomendacion = '';
+      let max = 0;
+      for (const [carrera, count] of Object.entries(conteo)) {
+        if (count > max) {
+          max = count;
+          recomendacion = carrera;
+        }
+      }
+      onFinalizar(respuestas, preguntas, recomendacion);
     }
   };
 

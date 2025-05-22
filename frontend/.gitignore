@@ -1,0 +1,20 @@
+# Node modules (if used in the future)
+node_modules/
+
+# Build output
+/dist/
+/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Environment variables
+.env
+.env.*
+
+# Compiled JS (if using TypeScript or build tools)
+*.js.map

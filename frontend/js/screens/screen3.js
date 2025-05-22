@@ -1,15 +1,14 @@
 import { guardarUsuario } from '../api.js';
 import { crearElemento } from '../utils.js';
 
-export default function renderScreen3(onGuardado) {
+export default function renderScreen3(onGuardado, respuestas, recomendacion) {
   const form = crearElemento('form');
   form.appendChild(crearElemento('h2', {}, 'Tus datos'));
 
   const fields = [
-    { label: 'Identificación', name: 'identificacion', type: 'text', required: true },
     { label: 'Nombre', name: 'nombre', type: 'text', required: true },
-    { label: 'Teléfono', name: 'telefono', type: 'tel', required: true },
-    { label: 'Correo', name: 'correo', type: 'email', required: true }
+    { label: 'Correo', name: 'email', type: 'email', required: true },
+    { label: 'Edad', name: 'edad', type: 'number', required: true }
   ];
 
   fields.forEach(f => {
@@ -29,6 +28,11 @@ export default function renderScreen3(onGuardado) {
   form.onsubmit = async e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
+    // Convertir edad a número
+    data.edad = parseInt(data.edad, 10);
+    // Agregar respuestas y recomendacion
+    data.respuestas = respuestas || {};
+    data.recomendacion = recomendacion || '';
     await guardarUsuario(data);
     onGuardado();
   };
