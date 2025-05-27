@@ -8,38 +8,22 @@ export function crearElemento(tag, attrs = {}, ...children) {
   return el;
 }
 export function recomendarCarrera(respuestasSeleccionadas, preguntas) {
-  const conteo = {
-    'ingenieria de sistemas': 0,
-    'ingenieria electronica': 0,
-    'arte': 0,
-    'derecho': 0,
-    'administración': 0
-  };
-  // Soportar tanto array como objeto
-  if (Array.isArray(respuestasSeleccionadas)) {
-    respuestasSeleccionadas.forEach((respId, idx) => {
-      const pregunta = preguntas[idx];
-      const respuesta = pregunta.respuestas.find(r => r.id === respId);
-      if (respuesta && conteo[respuesta.carrera] !== undefined) {
-        conteo[respuesta.carrera]++;
-      }
-    });
-  } else if (typeof respuestasSeleccionadas === 'object' && respuestasSeleccionadas !== null) {
-    Object.entries(respuestasSeleccionadas).forEach(([pregId, respId]) => {
-      const pregunta = preguntas.find(p => p.id == pregId);
-      const respuesta = pregunta?.respuestas.find(r => r.id === respId);
-      if (respuesta && conteo[respuesta.carrera] !== undefined) {
-        conteo[respuesta.carrera]++;
-      }
-    });
-  }
-  let recomendada = null;
-  let max = -1;
-  for (const [carrera, count] of Object.entries(conteo)) {
-    if (count > max) {
-      max = count;
-      recomendada = carrera;
+  const conteo = {};
+  Object.entries(respuestasSeleccionadas).forEach(([pregId, respId]) => {
+    const pregunta = preguntas.find(p => p.id === Number(pregId));
+    if (!pregunta) return;
+    const respuesta = pregunta.respuestas.find(r => String(r.id).trim() === String(respId).trim());
+    if (respuesta && respuesta.carrera) {
+      conteo[respuesta.carrera] = (conteo[respuesta.carrera] || 0) + 1;
     }
-  }
-  return recomendada;
+  });
+  const valores = Object.values(conteo);
+  let max = valores.length > 0 ? Math.max(...valores) : 0;
+  if (valores.length === 0 || max === 0) return 'No se pudo determinar una carrera recomendada.';
+  const recomendadas = Object.entries(conteo)
+    .filter(([carrera, count]) => count === max && count > 0)
+    .map(([carrera]) => carrera);
+  if (recomendadas.length === 1) return recomendadas[0];
+  if (recomendadas.length > 1) return 'Empate: ' + recomendadas.join(' / ');
+  return 'No se pudo determinar una carrera recomendada.';
 }

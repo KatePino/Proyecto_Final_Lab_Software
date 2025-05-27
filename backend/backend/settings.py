@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'dbRecomendacionCarerra',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb+srv://adminUser:NF5zMrVU7up5f3LO@cluster0.c7uydgg.mongodb.net/dbRecomendacionCarerra?retryWrites=true&w=majority&appName=Cluster0',
+            'host': 'mongodb+srv://adminUser:NF5zMrVU7up5f3LO@cluster0.c7uydgg.mongodb.net/dbRecomendacionCarerra?retryWrites=true&w=majority',
             'tls': True,
         }
     }

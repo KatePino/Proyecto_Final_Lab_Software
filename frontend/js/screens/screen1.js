@@ -46,26 +46,33 @@ export default async function renderScreen1(onFinalizar) {
       current++;
       renderPregunta(current);
     } else {
-      // Calcular recomendación (la carrera más seleccionada)
+      // Calcular recomendación (la carrera más seleccionada, considerando empates)
       const conteo = {};
-      Object.values(respuestas).forEach(val => {
-        // Buscar la respuesta seleccionada en todas las preguntas
-        let respObj = null;
-        for (const pregunta of preguntas) {
-          respObj = pregunta.respuestas.find(r => r.id === val);
-          if (respObj) break;
-        }
-        if (respObj) {
+      Object.entries(respuestas).forEach(([preguntaId, respId]) => {
+        const pregunta = preguntas.find(p => p.id === Number(preguntaId));
+        if (!pregunta) return;
+        const respObj = pregunta.respuestas.find(r => r.id === respId);
+        if (respObj && respObj.carrera) {
           conteo[respObj.carrera] = (conteo[respObj.carrera] || 0) + 1;
+        } else {
+          console.warn('Respuesta sin carrera:', respObj, 'en pregunta', pregunta);
         }
       });
+      console.log('Conteo de carreras:', conteo);
+      // Encuentra el máximo
+      let max = Math.max(...Object.values(conteo));
+      // Filtra todas las carreras con ese máximo
+      const recomendadas = Object.entries(conteo)
+        .filter(([carrera, count]) => count === max && count > 0)
+        .map(([carrera]) => carrera);
       let recomendacion = '';
-      let max = 0;
-      for (const [carrera, count] of Object.entries(conteo)) {
-        if (count > max) {
-          max = count;
-          recomendacion = carrera;
-        }
+      if (recomendadas.length === 1) {
+        recomendacion = recomendadas[0];
+      } else if (recomendadas.length > 1) {
+        // Elegir aleatoriamente una de las empatadas
+        recomendacion = recomendadas[Math.floor(Math.random() * recomendadas.length)];
+      } else {
+        recomendacion = '';
       }
       onFinalizar(respuestas, preguntas, recomendacion);
     }
